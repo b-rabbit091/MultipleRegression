@@ -1,0 +1,32 @@
+import pandas as pd
+from sklearn import linear_model
+import seaborn as sns
+
+
+data= pd.DataFrame({
+    'area':[2600,3000,3200,3600,4000],
+    'price':[550000,565000,610000,595000,760000],
+    'age':[20,15,18,30,8],
+    'bedroom':[3,4,3,3,5]
+    
+})
+
+#or we can import from any csv file
+
+
+
+reg=linear_model.LinearRegression()
+
+#this is how we seperate independent and dependent variable in multiple regression
+
+reg.fit(data[['area','age','bedroom']],data[['price']])
+
+#predicting the price for given area, age and bedroom
+reg.predict([[3200,18,3]])
+
+
+
+
+
+
+
